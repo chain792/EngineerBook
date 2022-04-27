@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
   def search
-    @books = RakutenWebService::Books::Book.search(title: "良いコード／悪いコードで学ぶ設計入門")
+    url = "https://www.googleapis.com/books/v1/volumes"
+    text='プログラミング'
+    res = Faraday.get(url, q: text)
+    @books = JSON.parse(res.body)
   end
 end

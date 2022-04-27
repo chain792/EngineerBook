@@ -1,4 +1,4 @@
-<% @books.each do |book| %>
-<%= book.title %>
-<%= image_tag book.medium_image_url %>
+<% @books['items'].each do |book| %>
+<p><%= book['volumeInfo']['title'] %></p>
+<%= image_tag book['volumeInfo']['imageLinks']['thumbnail'] %>
 <% end %>
