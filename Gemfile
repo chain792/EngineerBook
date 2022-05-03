@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails'
 gem 'faraday'
 gem 'rails-i18n', '~> 6.0'
+gem 'sorcery'
 
 # uninitialized constant Mail::TestMailerの対策
 gem 'net-smtp'
@@ -40,6 +41,7 @@ gem 'net-pop'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
 end
 
 group :development do
