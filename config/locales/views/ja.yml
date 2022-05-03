@@ -1,0 +1,5 @@
+ja:
+  defaults:
+  static_pages:
+    top:
+      title: 'Hello!Topです'

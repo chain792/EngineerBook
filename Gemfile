@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'dotenv-rails'
 gem 'faraday'
+gem 'rails-i18n', '~> 6.0'
 
 # uninitialized constant Mail::TestMailerの対策
 gem 'net-smtp'
