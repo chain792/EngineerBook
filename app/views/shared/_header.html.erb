@@ -1,1 +1,25 @@
-<button class="btn btn-primary">button</button>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid justify-content-start">
+      <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <%= link_to 'EngineerBook', root_path, class: 'navbar-brand' %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav ms-auto">
+          <li class="nav-item"><a href="#" class="nav-link">test1</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">test2</a></li>
+          <li class="nav-item dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown link
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#">マイページ</a></li>
+              <li><%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'dropdown-item' %></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
