@@ -7,4 +7,8 @@ module ApplicationHelper
   def date(datetime)
     datetime.strftime('%Y年%m月%d日')
   end
+
+  def book_thumbnail(book)
+    book['volumeInfo']['imageLinks'].nil? ? 'sample.png' : book['volumeInfo']['imageLinks']['thumbnail']
+  end
 end
