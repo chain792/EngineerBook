@@ -8,7 +8,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav nav ms-auto">
           <li class="nav-item"><a href="#" class="nav-link">test1</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">test2</a></li>
+          <li class="nav-item me-3">
+            <%= link_to '新規投稿', books_search_path, class: 'nav-link' %>
+          </li>
           <li class="nav-item dropdown">
             <%= link_to profile_path, id: 'dropdownMenuLink', 'aria-expanded': false, class: 'dropdown-toggle' do %>
               <%= image_tag current_user.avatar.url, size: '40x40', class: 'rounded-circle me-2' %>
