@@ -39,6 +39,13 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  profiles:
+    show:
+      title: 'マイページ'
+    edit:
+      title: 'プロフィール編集'
+    update:
+      item: 'プロフィール'
   static_pages:
     top:
       title: 'Hello!Topです'

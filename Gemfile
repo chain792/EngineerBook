@@ -32,6 +32,8 @@ gem 'dotenv-rails'
 gem 'faraday'
 gem 'rails-i18n', '~> 6.0'
 gem 'sorcery'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # uninitialized constant Mail::TestMailerの対策
 gem 'net-smtp'

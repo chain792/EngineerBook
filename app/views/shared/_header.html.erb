@@ -10,11 +10,11 @@
           <li class="nav-item"><a href="#" class="nav-link">test1</a></li>
           <li class="nav-item"><a href="#" class="nav-link">test2</a></li>
           <li class="nav-item dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="#">マイページ</a></li>
+            <%= link_to profile_path, id: 'dropdownMenuLink', 'aria-expanded': false, class: 'dropdown-toggle' do %>
+              <%= image_tag current_user.avatar.url, size: '40x40', class: 'rounded-circle me-2' %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+              <li><%= link_to t('profiles.show.title'), profile_path, class: 'dropdown-item' %></li>
               <li><%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'dropdown-item' %></li>
             </ul>
           </li>

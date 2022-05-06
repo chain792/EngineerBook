@@ -4,6 +4,12 @@
 .dropdown:hover > .dropdown-menu{
   display: block;
 }
+.dropdown:hover > .dropdown-menu{
+  right: 0;
+}
+.dropdown-toggle::after {
+  display:none;
+}
 .copyright{
   font-size: 14px;
   color: #555;
