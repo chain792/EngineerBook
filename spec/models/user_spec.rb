@@ -16,6 +16,12 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name]).to eq ["を入力してください"]
     end
 
+    it '名前が21文字以上の場合、無効' do
+      user = build(:user, name: 'a' * 21)
+      expect(user).to be_invalid
+      expect(user.errors[:name]).to eq ["は20文字以内で入力してください"]
+    end
+
     it 'メールアドレスがない場合、無効' do
       user = build(:user, email: nil)
       expect(user).to be_invalid
@@ -31,13 +37,13 @@ RSpec.describe User, type: :model do
     it "パスワードがない場合、無効" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to eq ["は3文字以上で入力してください"]
+      expect(user.errors[:password]).to eq ["は4文字以上で入力してください"]
     end
 
-    it "パスワードが2文字以内の場合、無効" do
-      user = build(:user, password: "a" * 2)
+    it "パスワードが3文字以内の場合、無効" do
+      user = build(:user, password: 'a' * 3)
       user.valid?
-      expect(user.errors[:password]).to eq ["は3文字以上で入力してください"]
+      expect(user.errors[:password]).to eq ["は4文字以上で入力してください"]
     end
 
     it "パスワード確認がない場合、無効" do
