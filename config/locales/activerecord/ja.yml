@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      book: '本'
+      author: '著者'
     attributes:
       user:
         email: 'メールアドレス'

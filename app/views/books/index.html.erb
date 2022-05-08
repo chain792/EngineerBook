@@ -1,6 +1,7 @@
 <% @books.each do |book| %>
 <%= image_tag book.book_image.url, size: '120x170' %>
 <p><%= book.title %></p>
+<p><%= book.authors.pluck(:name).join(', ') %></p>
 <p><%= book.body %></p>
 <p><%= book.published_date %></p>
 <p><%= link_to '詳細', book.info_link %></p>

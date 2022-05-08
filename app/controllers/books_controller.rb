@@ -13,10 +13,10 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.build(book_params)
-    if @book.save
-      redirect_to books_path, success: t('defaults.message.created', item: Book.model_name.human)
+    if @book.save_with_author(author_params[:authors])
+      redirect_to books_path, success: t('defaults.message.created', item: 'レビュー')
     else
-      flash.now[:danger] = t('defaults.message.not_created', item: Book.model_name.human)
+      flash.now[:danger] = t('defaults.message.not_created', item: 'レビュー')
       render 'new'
     end
   end
@@ -34,6 +34,10 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :body, :remote_book_image_url, :info_link, :published_date)
+  end
+
+  def authors_params
+    params.require(:book).permit(authors: [])
   end
 
   def set_volume_info
