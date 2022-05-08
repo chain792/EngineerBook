@@ -6,7 +6,7 @@
           <div class="card mb-3 p-3">
             <div class="row g-0">
               <div class="col-5">
-                <%= image_tag @volume_info[:book_image].blank? ? 'sample.png' : @volume_info[:book_image], class: 'img-fluid' %>
+                <%= image_tag @volume_info[:bookImage].blank? ? 'sample.png' : @volume_info[:bookImage], class: 'img-fluid' %>
               </div>
               <div class="col-7">
                 <div class="card-body">
@@ -27,7 +27,7 @@
         <%= f.hidden_field :title, value: @volume_info[:title] %>
         <%= f.hidden_field :published_date, value: @volume_info[:publishedDate] %>
         <%= f.hidden_field :info_link, value: @volume_info[:infoLink] %>
-        <%= f.hidden_field :remote_book_image_url, value: @volume_info[:book_image] %>
+        <%= f.hidden_field :remote_book_image_url, value: @volume_info[:bookImage] %>
         <% @volume_info[:authors]&.each do |author| %>
           <%= hidden_field_tag 'book[authors][]', author %>
         <% end %>

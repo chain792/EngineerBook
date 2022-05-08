@@ -8,12 +8,11 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @volume_info = params[:volumeInfo]
-    @volume_info[:book_image] = params.dig(:volumeInfo, :imageLinks, :thumbnail)
   end
 
   def create
     @book = current_user.books.build(book_params)
-    if @book.save_with_author(author_params[:authors])
+    if @book.save_with_author(authors_params[:authors])
       redirect_to books_path, success: t('defaults.message.created', item: 'レビュー')
     else
       flash.now[:danger] = t('defaults.message.not_created', item: 'レビュー')
@@ -44,7 +43,7 @@ class BooksController < ApplicationController
     @volume_info = {}
     @volume_info[:title] = params[:book][:title]
     @volume_info[:authors] = params[:book][:authors]
-    @volume_info[:book_image] = params[:book][:remote_book_image_url]
+    @volume_info[:bookImage] = params[:book][:remote_book_image_url]
     @volume_info[:infoLink] = params[:book][:info_link]
     @volume_info[:publishedDate] = params[:book][:published_date]
   end

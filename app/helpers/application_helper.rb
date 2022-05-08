@@ -8,7 +8,13 @@ module ApplicationHelper
     datetime.strftime('%Y年%m月%d日')
   end
 
-  def book_thumbnail(book)
-    book['volumeInfo']['imageLinks'].nil? ? 'sample.png' : book['volumeInfo']['imageLinks']['thumbnail']
+  def google_book_thumbnail(google_book)
+    google_book['volumeInfo']['imageLinks'].nil? ? 'sample.png' : google_book['volumeInfo']['imageLinks']['thumbnail']
   end
+
+  def set_google_book_params(google_book)
+    google_book['volumeInfo']['bookImage'] = google_book.dig('volumeInfo', 'imageLinks', 'thumbnail')
+    google_book['volumeInfo'].slice('title', 'authors', 'publishedDate', 'infoLink', 'bookImage')
+  end
+
 end
