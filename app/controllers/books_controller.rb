@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_volume_info, only: %i[create]
 
   def index
-    @books = Book.all.order(created_at: :desc)
+    @books = Book.all.includes(:authors,:user).order(created_at: :desc)
   end
 
   def new
