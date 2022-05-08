@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <!-- 検索フォーム -->
-      <%= form_with url: books_search_path, method: :get do |f| %>
+      <%= form_with url: search_books_path, method: :get do |f| %>
       本を検索して選んでください
         <%= f.text_field :search, class: "form-control" %>
         <%= f.submit t('defaults.search'), class: "btn btn-primary" %>
@@ -11,24 +11,24 @@
     </div>
   </div>
   <!-- 検索結果 -->
-  <% if @books.present? %>
+  <% if @google_books.present? %>
     <div class="row">
-      <% @books['items'].each do |book| %>
+      <% @google_books['items'].each do |google_book| %>
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card mb-3", style="height: 220px">
             <div class="row g-0">
               <div class="col-5">
-                <%= image_tag book_thumbnail(book), class: 'img-fluid' %>
+                <%= image_tag book_thumbnail(google_book), class: 'img-fluid' %>
               </div>
               <div class="col-7">
                 <div class="card-body">
-                  <h5 class="card-title"><%= book['volumeInfo']['title'].truncate(30) %></h5>
-                  <p class="card-text mb-2"><%= book['volumeInfo']['authors']&.join(', ')&.truncate(20) %></p>
-                  <p class="card-text"><small class="text-muted"><%= book['volumeInfo']['publishedDate'] %></small></p>
+                  <h5 class="card-title"><%= google_book['volumeInfo']['title'].truncate(30) %></h5>
+                  <p class="card-text mb-2"><%= google_book['volumeInfo']['authors']&.join(', ')&.truncate(20) %></p>
+                  <p class="card-text"><small class="text-muted"><%= google_book['volumeInfo']['publishedDate'] %></small></p>
                 </div>
               </div>
             </div>
-            <a href="#" class="card-link" ></a>
+            <%= link_to '', new_book_path(volumeInfo: google_book['volumeInfo']), class: 'card-link' %>
           </div>
         </div>
       <% end %>
