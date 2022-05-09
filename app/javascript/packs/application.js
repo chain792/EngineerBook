@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import "bootstrap";
+import "bootstrap-icons/font/bootstrap-icons";
 import "../stylesheets/application.scss";
 
 import "./common.js";
