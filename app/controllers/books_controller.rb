@@ -13,15 +13,29 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
     if @book.save_with_author(authors_params[:authors])
-      redirect_to books_path, success: t('defaults.message.created', item: 'レビュー')
+      redirect_to books_path, success: t('defaults.message.created', item: t('defaults.review'))
     else
-      flash.now[:danger] = t('defaults.message.not_created', item: 'レビュー')
+      flash.now[:danger] = t('defaults.message.not_created', item: t('defaults.review'))
       render 'new'
     end
   end
 
   def show
     @book = Book.find(params[:id])
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+    @book = current_user.books.find(params[:id])
+    @book.destroy!
+    redirect_to books_path, success: t('defaults.message.deleted', item: t('defaults.review'))
   end
 
   def search

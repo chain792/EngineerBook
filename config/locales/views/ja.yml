@@ -14,6 +14,7 @@ ja:
     submit: '送信'
     password_reset: 'パスワードリセット'
     unspecified: '指定なし'
+    review: 'レビュー'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
