@@ -17,9 +17,9 @@ RSpec.describe User, type: :model do
     end
 
     it '名前が21文字以上の場合、無効' do
-      user = build(:user, name: 'a' * 21)
+      user = build(:user, name: 'a' * 17)
       expect(user).to be_invalid
-      expect(user.errors[:name]).to eq ["は20文字以内で入力してください"]
+      expect(user.errors[:name]).to eq ["は16文字以内で入力してください"]
     end
 
     it 'メールアドレスがない場合、無効' do

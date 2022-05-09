@@ -20,6 +20,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def show
+    @book = Book.find(params[:id])
+  end
+
   def search
     if params[:search]
       url = "https://www.googleapis.com/books/v1/volumes"

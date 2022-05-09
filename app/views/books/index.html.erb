@@ -1,10 +1,37 @@
-<% @books.each do |book| %>
-<%= image_tag book.book_image.url, size: '120x170' %>
-<p><%= book.user.name %></p>
-<p><%= book.title %></p>
-<p><%= book.authors.pluck(:name).join(', ') %></p>
-<p><%= book.body %></p>
-<p><%= book.published_date %></p>
-<p><%= link_to '詳細', book.info_link %></p>
-<hr>
-<% end %>
+<% content_for(:title, t('.title')) %>
+<div class="container pt-3">
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card mb-3", style="height: 350px; min-width: 300px;">
+          <div class="row g-0", style="height: 220px">
+            <div class="col-5">
+              <%= image_tag book.book_image.url, class: 'img-fluid' %>
+            </div>
+            <div class="col-7">
+              <div class="card-body">
+                <h5 class="card-title"><%= book.title.truncate(30) %></h5>
+                <p class="card-text mb-2"><%= book.authors.pluck(:name).join(', ')&.truncate(20) %></p>
+                <p class="card-text"><small class="text-muted"><%= book.published_date %></small></p>
+              </div>
+            </div>
+          </div>
+          <div class="row g-0 border-top pt-2">
+            <div class="col-2">
+              <%= image_tag book.user.avatar.url, class: 'rounded-circle ps-1', size: '40x40' %>
+            </div>
+            <div class="col-10">
+              <p class="fs-7 my-1"><%= book.user.name %></p>
+              <p class="card-text mb-2"><small class="text-muted"><%= date_ago(book.created_at) %></small></p>
+            </div>
+            <div class="col-12">
+                <p class="card-text mx-3"><%= book.body.truncate(30) %></p>
+            </div>
+          </div>
+          <%= link_to '', book_path(book), class: 'card-link' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -46,6 +46,8 @@ ja:
     edit:
       title: 'プロフィール編集'
   books:
+    index:
+      title: '投稿一覧'
     new:
       title: 'レビュー投稿'
     search:
