@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     if params[:search]
       url = "https://www.googleapis.com/books/v1/volumes"
       text = params[:search]
-      res = Faraday.get(url, q: text, country: 'JP', maxResults: 30)
+      res = Faraday.get(url, q: text, country: 'JP', maxResults: 30, key: ENV['GOOGLE_API_KEY'])
       @google_books = JSON.parse(res.body)
     end
   end
