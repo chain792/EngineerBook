@@ -13,7 +13,8 @@ import "bootstrap-icons/font/bootstrap-icons";
 import "../stylesheets/application.scss";
 import "jquery";
 
-import "./common.js";
+import "./preview_image.js";
+import "./edit_comment";
 
 Rails.start()
 Turbolinks.start()

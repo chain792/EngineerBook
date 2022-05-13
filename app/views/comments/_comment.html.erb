@@ -10,14 +10,14 @@
       </div>
     </div>
   </div>
-  <div class="ms-1">
+  <div class="ms-1" id="show-comment-<%= comment.id %>">
     <% if current_user.own?(comment) %>
       <div class="dropdown float-end me-3">
         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-gear-fill fs-5"></i>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-          <li><%= link_to '編集する', comment_path(comment), class: 'dropdown-item' %></li>
+          <li><%= link_to '編集する', '#', class: 'dropdown-item js-edit-comment-button', data: { 'comment-id': comment.id } %></li>
           <li>
             <%= link_to '削除', comment_path(comment), class: 'dropdown-item text-danger', method: :delete, remote: true,
                 data: { confirm: t('defaults.message.delete_confirm', item: Comment.human_attribute_name('body')) } %>
@@ -25,6 +25,13 @@
         </ul>
       </div>
     <% end %>
-    <p class="mb-1"><%= simple_format comment.body %></p>
+    <div class="mb-1" id="comment-body-<%= comment.id %>">
+      <%= simple_format comment.body %>
+    </div>
+  </div>
+  <div id="edit-comment-<%= comment.id %>" style="display: none;" class="me-3">
+    <textarea id="textarea-comment-<%= comment.id %>" class="form-control mb-1" placeholder="コメントを追加…"><%= comment.body %></textarea>
+    <button class="btn btn-light js-cancel-edit-comment-button" data-comment-id="<%= comment.id %>">キャンセル</button>
+    <button class="btn btn-primary js-update-comment-button" data-comment-id="<%= comment.id %>">保存</button>
   </div>
 </li>
