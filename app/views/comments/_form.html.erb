@@ -1,0 +1,10 @@
+<div class="row mt-3">
+  <div class="col-md-10 offset-md-1">
+    <%= form_with model: [book, comment], id: 'new-comment', local: false do |f|  %>
+      <%= render 'shared/error_message', object: f.object %>
+      <%= f.label :body, class: 'form-label' %>
+      <%= f.text_area :body, placeholder: Comment.human_attribute_name(:body), class: 'form-control mb-3', id: 'new-comment-body' %>
+      <%= f.submit t('defaults.post'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

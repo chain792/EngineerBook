@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :books do
     collection { get :search }
+    resources :comments, only: %i[create update destroy], shallow: true
   end
   resource :profile, only: %i[show edit update]
   get 'login', to: 'user_sessions#new'

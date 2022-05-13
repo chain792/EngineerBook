@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :book_authors, dependent: :destroy
   has_many :authors, through: :book_authors
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :body, length: { minimum: 5 }

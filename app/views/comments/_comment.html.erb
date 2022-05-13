@@ -1,0 +1,16 @@
+<li class="border-top ps-2">
+  <div class="" style="display: inline-block">
+    <div class="d-flex">
+      <div>
+        <%= image_tag comment.user.avatar.url, class: 'rounded-circle mt-2 ms-1 me-3', size: '40x40' %>
+      </div>
+      <div>
+        <p class="fs-7 my-1"><%= comment.user.name %></p>
+        <p ><small class="text-muted"><%= l comment.created_at, format: :long %></small></p>
+      </div>
+    </div>
+  </div>
+  <div class="ms-1">
+    <p class="mb-1"><%= simple_format comment.body %></p>
+  </div>
+</li>

@@ -11,6 +11,7 @@ import "channels"
 import "bootstrap";
 import "bootstrap-icons/font/bootstrap-icons";
 import "../stylesheets/application.scss";
+import "jquery";
 
 import "./common.js";
 

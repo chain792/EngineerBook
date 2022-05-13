@@ -54,3 +54,7 @@ header .dropdown:hover > .dropdown-menu{
   background-color: rgba(220,220,220,0.2);
   box-shadow: 4px 4px 10px rgba(110,110,110,0.4);
 }
+
+#comments-list li{
+  list-style-position: inside;
+}
