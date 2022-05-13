@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   mount_uploader :book_image, BookImageUploader
 
   belongs_to :user
+  belongs_to :category
   has_many :book_authors, dependent: :destroy
   has_many :authors, through: :book_authors
   has_many :comments, dependent: :destroy

@@ -18,13 +18,18 @@
             </div>
           </div>
         </div>
-      <!-- 編集フォーム -->
+      <!-- 投稿フォーム -->
       <%= form_with model: @book, url: books_path do |f| %>
         <%= render 'shared/error_message' , object: f.object %>
         <div class="mb-3">
           <%= f.label :body, class: 'form-label' %>
           <%= f.text_area :body, class: 'form-control', rows: 5, placeholder: '5文字以上で入力してください' %>
         </div>
+        <div class="mb-3">
+          <%= f.label :category, class: 'form-label' %>
+          <%= f.select :category, Category.where(ancestry: nil).map { |category| [category[:name], category[:id]] } , class: 'form-control' %>
+        </div>
+
         <%= f.hidden_field :title, value: @volume_info[:title] %>
         <%= f.hidden_field :published_date, value: @volume_info[:publishedDate] %>
         <%= f.hidden_field :info_link, value: @volume_info[:infoLink] %>

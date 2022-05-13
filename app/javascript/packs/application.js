@@ -13,8 +13,9 @@ import "bootstrap-icons/font/bootstrap-icons";
 import "../stylesheets/application.scss";
 import "jquery";
 
-import "./preview_image.js";
+import "./preview_image";
 import "./edit_comment";
+import "./category";
 
 Rails.start()
 Turbolinks.start()

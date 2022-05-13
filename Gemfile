@@ -35,6 +35,7 @@ gem 'sorcery'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'ancestry'
 
 # uninitialized constant Mail::TestMailerの対策
 gem 'net-smtp'
