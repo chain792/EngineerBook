@@ -4,6 +4,11 @@ class CommentsController < ApplicationController
     @comment.save
   end
 
+  def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy!
+  end
+
   def comment_params
     params.require(:comment).permit(:body).merge(book_id: params[:book_id])
   end

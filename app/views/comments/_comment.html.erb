@@ -1,4 +1,4 @@
-<li class="border-top ps-2">
+<li class="border-bottom ps-2" id="comment-<%= comment.id %>">
   <div class="" style="display: inline-block">
     <div class="d-flex">
       <div>
@@ -11,6 +11,20 @@
     </div>
   </div>
   <div class="ms-1">
+    <% if current_user.own?(comment) %>
+      <div class="dropdown float-end me-3">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-gear-fill fs-5"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to '編集する', comment_path(comment), class: 'dropdown-item' %></li>
+          <li>
+            <%= link_to '削除', comment_path(comment), class: 'dropdown-item text-danger', method: :delete, remote: true,
+                data: { confirm: t('defaults.message.delete_confirm', item: Comment.human_attribute_name('body')) } %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
     <p class="mb-1"><%= simple_format comment.body %></p>
   </div>
 </li>
