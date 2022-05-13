@@ -34,6 +34,7 @@ gem 'rails-i18n', '~> 6.0'
 gem 'sorcery'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 # uninitialized constant Mail::TestMailerの対策
 gem 'net-smtp'
