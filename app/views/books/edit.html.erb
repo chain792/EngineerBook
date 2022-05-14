@@ -25,11 +25,7 @@
           <%= f.label :body, class: 'form-label' %>
           <%= f.text_area :body, class: 'form-control', rows: 5, placeholder: '5文字以上で入力してください' %>
         </div>
-        <div class="mb-3" id="category-select-form">
-          <%= f.label :category, class: 'form-label' %>
-          <%= f.select :parent_category, @parent_category , { include_blank: "大カテゴリを選択" } , class: 'form-select mb-2', id: 'parent_category' %>
-        </div>
-        <%= f.submit class: "btn btn-secondary", id: 'submit-button', disabled: true %>
+        <%= f.submit class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

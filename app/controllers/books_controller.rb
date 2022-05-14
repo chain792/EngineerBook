@@ -64,7 +64,7 @@ class BooksController < ApplicationController
     when 'create'
       params.require(:book).permit(:title, :body, :remote_book_image_url, :info_link, :published_date).merge(category_id: category_id)
     when 'update'
-      params.require(:book).permit(:body).merge(category_id: category_id)
+      params.require(:book).permit(:body)
     end
   end
 
