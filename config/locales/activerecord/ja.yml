@@ -19,6 +19,7 @@ ja:
         book_image: 'サムネイル'
         published_date: '出版日'
         user: '作成者'
+        category: 'カテゴリ'
       comment:
         body: 'コメント'
   attributes:

@@ -25,9 +25,9 @@
           <%= f.label :body, class: 'form-label' %>
           <%= f.text_area :body, class: 'form-control', rows: 5, placeholder: '5文字以上で入力してください' %>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" id="category-select-form">
           <%= f.label :category, class: 'form-label' %>
-          <%= f.select :category, Category.where(ancestry: nil).map { |category| [category[:name], category[:id]] } , class: 'form-control' %>
+          <%= f.select :parent_category, @parent_category , { include_blank: "大カテゴリを選択" } , class: 'form-select mb-2', id: 'parent_category' %>
         </div>
 
         <%= f.hidden_field :title, value: @volume_info[:title] %>
@@ -37,7 +37,7 @@
         <% @volume_info[:authors]&.each do |author| %>
           <%= hidden_field_tag 'book[authors][]', author %>
         <% end %>
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-secondary", id: 'submit-button', disabled: true %>
       <% end %>
     </div>
   </div>

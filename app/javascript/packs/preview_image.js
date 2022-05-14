@@ -13,7 +13,7 @@ function previewImage(){
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   const fileFiled = document.getElementById("file-field")
   if(fileFiled){
     fileFiled.addEventListener("change", () => { previewImage() })

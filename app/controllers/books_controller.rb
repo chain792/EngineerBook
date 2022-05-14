@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @volume_info = params[:volumeInfo]
+    set_category
   end
 
   def create
@@ -15,6 +16,7 @@ class BooksController < ApplicationController
     if @book.save_with_author(authors_params[:authors])
       redirect_to books_path, success: t('defaults.message.created', item: t('defaults.review'))
     else
+      set_category
       set_volume_info
       flash.now[:danger] = t('defaults.message.not_created', item: t('defaults.review'))
       render 'new'
@@ -27,12 +29,15 @@ class BooksController < ApplicationController
     @comments = @book.comments.includes(:user)
   end
 
-  def edit; end
+  def edit
+    set_category
+  end
 
   def update
     if @book.update(book_params)
       redirect_to book_path(@book), success: t('defaults.message.updated', item: t('defaults.review'))
     else
+      set_category
       flash.now[:danger] = t('defaults.message.not_updated', item: t('defaults.review'))
       render 'edit'
     end
@@ -57,10 +62,15 @@ class BooksController < ApplicationController
   def book_params
     case action_name
     when 'create'
-      params.require(:book).permit(:title, :body, :remote_book_image_url, :info_link, :published_date)
+      params.require(:book).permit(:title, :body, :remote_book_image_url, :info_link, :published_date).merge(category_id: category_id)
     when 'update'
-      params.require(:book).permit(:body)
+      params.require(:book).permit(:body).merge(category_id: category_id)
     end
+  end
+
+  def category_id
+    category_params = params.require(:book).permit(:parent_category, :child_category)
+    category_params[:child_category].present? ? category_params[:child_category] : category_params[:parent_category]
   end
 
   def authors_params
@@ -78,5 +88,12 @@ class BooksController < ApplicationController
     @volume_info[:bookImage] = params[:book][:remote_book_image_url]
     @volume_info[:infoLink] = params[:book][:info_link]
     @volume_info[:publishedDate] = params[:book][:published_date]
+  end
+
+  def set_category
+    categories = Category.pluck(:id, :name, :ancestry)
+    gon.categories = categories
+    # 親カテゴリーを取得
+    @parent_category = categories.filter_map { |category| [category[1], category[0]] if category[2].nil? }
   end
 end

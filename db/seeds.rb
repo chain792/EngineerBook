@@ -5,12 +5,10 @@ programming.children.create(
     { name: 'PHP' },
     { name: 'JavaScript' },
     { name: 'Python' },
-    { name: 'C' },
+    { name: 'C/C++' },
     { name: 'C#' },
-    { name: 'C++' },
     { name: 'Java' },
-    { name: 'HTML' },
-    { name: 'CSS' },
+    { name: 'HTML/CSS' },
     { name: 'その他' },
   ]
 )
@@ -20,6 +18,7 @@ computer_technology.children.create(
   [
     { name: 'コンピュータサイエンス' },
     { name: 'データベース' },
+    { name: 'OS' },
     { name: 'ネットワーク' },
     { name: 'インフラ' },
     { name: 'AI・機械学習' },
