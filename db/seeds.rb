@@ -9,7 +9,7 @@ programming.children.create(
     { name: 'C#' },
     { name: 'Java' },
     { name: 'HTML/CSS' },
-    { name: 'その他' },
+    { name: 'その他プログラミング言語' },
   ]
 )
 
@@ -23,7 +23,6 @@ computer_technology.children.create(
     { name: 'インフラ' },
     { name: 'AI・機械学習' },
     { name: 'ハードウェア' },
-    { name: 'その他' },
   ]
 )
 
@@ -34,7 +33,6 @@ others.children.create(
     { name: '教養' },
     { name: '趣味' },
     { name: 'コミック・雑誌' },
-    { name: 'その他' },
   ]
 )
 

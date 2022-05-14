@@ -22,7 +22,10 @@
             </div>
             <div>
               <p class="fs-7 mb-1"><%= book.user.name %></p>
-              <p class="card-text mb-2"><small class="text-muted"><%= date_ago(book.created_at) %></small></p>
+              <p class="card-text mb-2">
+                <small class="text-muted"><%= date_ago(book.created_at) %></small>
+                <span class="badge bg-secondary ms-1"><%= book.category.name %></span>
+              </p>
             </div>
           </div>  
           <p class="card-text mx-3"><%= book.body.truncate(30) %></p>
