@@ -22,7 +22,6 @@ computer_technology.children.create(
     { name: 'ネットワーク' },
     { name: 'インフラ' },
     { name: 'AI・機械学習' },
-    { name: 'ハードウェア' },
   ]
 )
 
