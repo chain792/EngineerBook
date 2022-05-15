@@ -1,5 +1,5 @@
 <% unless current_user == user %>
-  <div id="follow-button-for-user-<%= @user.id %>" class="ms-3">
+  <div id="follow-button-for-user-<%= user.id %>" class="ms-3">
     <% if current_user.follow? user %>
       <%= render 'relationships/follow', user: user %>
     <% else %>

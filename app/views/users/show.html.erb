@@ -13,8 +13,12 @@
           <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eligendi doloremque, quam, officia sapiente porro sit perferendis voluptatibus adipisci voluptate maiores pariatur quidem neque odio praesentium error quasi mollitia libero!</p>
         </div>
         <div class="d-flex">
-          <p class="me-3 mb-0" id="follow-count"><%= @user.followings.length %><small class="text-secondary"> フォロー中</small></p>
-          <p class="mb-0" id="follower-count"><%= @user.followers.length %><small class="text-secondary"> フォロワー</small></p>
+          <%= link_to following_user_path(@user), class: 'me-3 mb-0 text-decoration-none', id: 'follow-count' do %>
+            <span class="text-dark"><%= @user.followings.length %></span><small class="text-secondary"> フォロー中</small>
+          <% end %>
+          <%= link_to follower_user_path(@user), class: 'mb-0 text-decoration-none', id: 'follower-count' do %>
+            <span class="text-dark"><%= @user.followers.length %></span><small class="text-secondary"> フォロワー</small>
+          <% end %>
         </div>
       </div>
       <div class="bg-white border rounded-2 px-4 mt-3">

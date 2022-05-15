@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#top'
-  resources :users, only: %i[new create show]
+  resources :users, only: %i[new create show] do
+    member do
+      get :following, :follower
+    end
+  end
   resources :books do
     collection { get :search }
     resources :comments, only: %i[create update destroy], shallow: true

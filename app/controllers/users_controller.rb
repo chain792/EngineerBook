@@ -21,6 +21,14 @@ class UsersController < ApplicationController
     @books = @user.books.includes(:authors, :category)
   end
 
+  def following
+    @users = User.find(params[:id]).followings
+  end
+
+  def follower
+    @users = User.find(params[:id]).followers
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
