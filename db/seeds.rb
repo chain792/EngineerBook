@@ -16,12 +16,10 @@ programming.children.create(
 computer_technology = Category.create(name: 'コンピュータテクノロジー')
 computer_technology.children.create(
   [
-    { name: 'コンピュータサイエンス' },
     { name: 'データベース' },
-    { name: 'OS' },
-    { name: 'ネットワーク' },
-    { name: 'インフラ' },
+    { name: 'インフラ/ネットワーク' },
     { name: 'AI・機械学習' },
+    { name: 'コンピュータテクノロジー全般' },
   ]
 )
 
