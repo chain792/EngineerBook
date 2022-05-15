@@ -1,28 +1,32 @@
 <% content_for(:title, t('.title')) %>
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
+      <h1 class="mb-3"><%= t('.title') %></h1>
+      <div class="bg-white border rounded-2 p-3">
       <%= form_with model: @user, url: profile_path do |f| %>
         <%= render 'shared/error_message' , object: f.object %>
-        <div class="form-group">
-          <%= f.label :email %>
+        <div class="mb-4">
+          <%= f.label :email, class: 'form-label fw-bolder' %>
           <%= f.email_field :email, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :name %>
+        <div class="mb-4">
+          <%= f.label :name, class: 'form-label fw-bolder' %>
           <%= f.text_field :name, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :avatar, class: 'form-label' %><br>
+        <div class="mb-4">
+          <%= f.label :avatar, class: 'form-label fw-bolder' %><br>
           <%= image_tag @user.avatar.url, id: 'preview', class: 'rounded-circle mr15', size: '80x80' %>
           <%= f.file_field :avatar, class: 'border rounded-3 p-1 m-3', accept: 'image/*' , id: 'file-field' %> 
           <%= f.hidden_field :avatar_cache %>
         </div>
-        <div class="my-3">
+        <div class="mb-4">
+          <%= f.label :introduction, class: 'form-label fw-bolder' %>
+          <%= f.text_area :introduction, class: "form-control", rows: 5 %>
         </div>
         <%= f.submit class: "btn btn-primary" %>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

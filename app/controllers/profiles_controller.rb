@@ -1,7 +1,9 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[edit update] 
 
-  def show;  end
+  def show
+    @books = current_user.books.includes(:authors, :category)
+  end
 
   def edit;  end
 
@@ -21,6 +23,6 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :avatar, :avatar_cache)
+    params.require(:user).permit(:name, :email, :avatar, :avatar_cache, :introduction)
   end
 end

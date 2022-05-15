@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
 
   validates :title, presence: true
-  validates :body, length: { minimum: 5 }
+  validates :body, length: { minimum: 5, maximum: 2000 }
 
   def save_with_author(authors)
     ActiveRecord::Base.transaction do

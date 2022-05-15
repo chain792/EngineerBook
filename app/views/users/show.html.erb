@@ -10,7 +10,7 @@
         </div>
         <div class="pt-3">
           <p class="border-bottom fs-7 fw-bolder mb-2">自己紹介</p>
-          <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eligendi doloremque, quam, officia sapiente porro sit perferendis voluptatibus adipisci voluptate maiores pariatur quidem neque odio praesentium error quasi mollitia libero!</p>
+          <p class=""><%= simple_format @user.introduction %></p>
         </div>
         <div class="d-flex">
           <%= link_to following_user_path(@user), class: 'me-3 mb-0 text-decoration-none', id: 'follow-count' do %>
