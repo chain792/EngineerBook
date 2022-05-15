@@ -1,0 +1,6 @@
+<% if current_user.like? book %>
+  <%= render 'likes/like', book: book %>
+<% else %>
+  <%= render 'likes/unlike', book: book %>
+<% end %>
+

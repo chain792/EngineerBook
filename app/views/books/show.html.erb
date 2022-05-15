@@ -39,7 +39,12 @@
               <%= @book.user.name %>
               <h5 class="mt-4 mb-2">レビュー内容</h5>
               <p class="card-j"><%= simple_format @book.body %></p>
-              <p class="card-tejxt mb-2"><small class="text-muted"><%= l @book.created_at, format: :long %></small></p>
+              <div class="d-flex">
+                <p class="card-tejxt mb-2"><small class="text-muted"><%= l @book.created_at, format: :long %></small></p>
+                <div class="ms-auto me-3 like-button">
+                  <%= render 'likes/like_button', book: @book %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,3 @@
+<%= link_to like_path(current_user.likes.find { |v| v.book_id == book.id }), method: :delete, id: "like-button-for-book-#{book.id}", remote: true do %>
+  <i class="bi bi-heart-fill fs-4"></i>
+<% end %>

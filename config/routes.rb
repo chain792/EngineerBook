@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create update destroy], shallow: true
   end
   resources :categories, only: %i[index show]
+  resources :likes, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

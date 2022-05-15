@@ -66,3 +66,19 @@ header .dropdown:hover > .dropdown-menu{
 .categories a:hover{
   text-decoration: underline;
 }
+
+.like-button a{
+  width: 36px;
+  height: 36px;
+  border-radius: 100px;
+  display: block;
+  text-align: center;
+}
+
+.like-button a:hover{
+  background-color: rgba(#dda0a0, 0.5);
+}
+
+.like-button i{
+  color: #ff0080
+}
