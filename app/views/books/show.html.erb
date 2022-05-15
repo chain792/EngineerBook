@@ -45,7 +45,7 @@
               <p class="card-j"><%= simple_format @book.body %></p>
               <div class="d-flex">
                 <p class="card-tejxt mb-2"><small class="text-muted"><%= l @book.created_at, format: :long %></small></p>
-                <div class="ms-auto me-3 like-button">
+                <div class="ms-auto me-3 like-button d-flex" id="like-button-for-book-<%= @book.id %>">
                   <%= render 'likes/like_button', book: @book %>
                 </div>
               </div>
