@@ -12,6 +12,10 @@
           <p class="border-bottom fs-7 fw-bolder mb-2">自己紹介</p>
           <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eligendi doloremque, quam, officia sapiente porro sit perferendis voluptatibus adipisci voluptate maiores pariatur quidem neque odio praesentium error quasi mollitia libero!</p>
         </div>
+        <div class="d-flex">
+          <p class="me-3 mb-0" id="follow-count"><%= @user.followings.length %><small class="text-secondary"> フォロー中</small></p>
+          <p class="mb-0" id="follower-count"><%= @user.followers.length %><small class="text-secondary"> フォロワー</small></p>
+        </div>
       </div>
       <div class="bg-white border rounded-2 px-4 mt-3">
         <p class="pt-3 fw-bolder">レビュー履歴</p>
