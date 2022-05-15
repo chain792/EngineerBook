@@ -42,6 +42,14 @@ header .dropdown:hover > .dropdown-menu{
 /*****************************************
   メイン
 ******************************************/
+a.hover-decoration{
+  text-decoration: none;
+}
+
+a.hover-decoration:hover{
+  text-decoration: underline;
+}
+
 .card-link{
   position: absolute;
   left: 0;
