@@ -58,3 +58,11 @@ header .dropdown:hover > .dropdown-menu{
 #comments-list li{
   list-style-position: inside;
 }
+
+.categories a{
+  text-decoration: none;
+}
+
+.categories a:hover{
+  text-decoration: underline;
+}
