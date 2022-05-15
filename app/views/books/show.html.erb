@@ -11,7 +11,7 @@
         </small>
       </p>
       <h2><%= @book.title %></h2>
-      <p><%= @book.authors.pluck(:name).join(', ') %> (著)</p>
+      <p><%= "#{@book.authors.pluck(:name).join(', ')} (著)" unless @book.authors.pluck(:name).blank? %></p>
       <p><small class="text-muted"><%= "発売日: #{@book.published_date}" unless @book.published_date.blank? %></small></p>
       <div class="card p-3">
         <div class="row g-0">
