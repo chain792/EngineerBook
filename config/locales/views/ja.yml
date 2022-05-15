@@ -31,6 +31,8 @@ ja:
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+    show:
+      title: 'ユーザー詳細'
     following:
       title: 'フォロー一覧'
     follower:
