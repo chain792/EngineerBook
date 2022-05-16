@@ -27,10 +27,14 @@
       </div>
       <!-- 投稿一覧 -->
       <div class="row mt-3">
-        <% @books.each do |book| %>
-          <div class="col-lg-6 col-12">
-            <%= render 'books/book', book: book %>
-          </div>
+        <% if @books.present? %>
+          <% @books.each do |book| %>
+            <div class="col-lg-6 col-12">
+              <%= render 'books/book', book: book %>
+            </div>
+          <% end %>
+        <% else %>
+          <p class="text-secondary"><%= t('.no_result') %></p>
         <% end %>
       </div>
     </div>

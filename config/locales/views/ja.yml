@@ -33,10 +33,13 @@ ja:
       fail: 'ユーザー登録に失敗しました'
     show:
       title: 'ユーザー詳細'
+      no_result: 'レビューした本はありません。'
     following:
       title: 'フォロー一覧'
+      no_result: 'フォローしているユーザはいません。'
     follower:
       title: 'フォロワー一覧'
+      no_result: 'フォローワーはいません。'
   user_sessions:
     new:
       title: 'ログイン'
@@ -50,11 +53,13 @@ ja:
   profiles:
     show:
       title: 'マイページ'
+      no_result: 'レビューした本はありません。'
     edit:
       title: 'プロフィール編集'
   books:
     index:
       title: '投稿一覧'
+      no_result: 'レビューされた本はありません。'
     new:
       title: 'レビュー投稿'
     edit:

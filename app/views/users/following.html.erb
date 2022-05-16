@@ -5,7 +5,11 @@
       <div class="border rounded-2 px-3 mt-3 follow-nav mb-1">
         <p class="py-1 my-2 fw-bolder"><%= @user.name %> さんがフォローしているユーザ</p>
       </div>
-      <%= render @users %>
+      <% if @users.present? %>
+        <%= render @users %>
+      <% else %>
+        <p class="text-secondary mt-3"><%= t('.no_result') %></p>
+      <% end %>
     </div>
   </div>
 </div>
