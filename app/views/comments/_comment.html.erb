@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="ms-1" id="show-comment-<%= comment.id %>">
-    <% if current_user.own?(comment) %>
+    <% if logged_in? && current_user.own?(comment) %>
       <div class="dropdown float-end me-3">
         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-gear-fill fs-5"></i>
