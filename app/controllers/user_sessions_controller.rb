@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create guest_login]
 
   def new
     # 自分で「ログイン or 新規登録」ボタンを押下した場合はsession[:return_to_url]を削除する
@@ -19,5 +19,19 @@ class UserSessionsController < ApplicationController
   def destroy
     logout
     redirect_to root_path, success: t('.success')
+  end
+
+  def guest_login
+    rondom_value = SecureRandom.alphanumeric(10) + Time.zone.now.to_i.to_s
+    i = User.last.id + 1
+    @guest_user = User.create(
+      name: "GuestUser_#{i}",
+      email: rondom_value + "@example.com",
+      password: 'password',
+      password_confirmation: 'password',
+      role: :guest
+    )
+    auto_login(@guest_user)
+    redirect_back_or_to profile_path, success: 'ゲストとしてログインしました'
   end
 end

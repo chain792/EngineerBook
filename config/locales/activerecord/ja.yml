@@ -9,7 +9,7 @@ ja:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
-        password_confirmation: 'パスワード確認'
+        password_confirmation: 'パスワード（確認）'
         name: '名前'
         avatar: 'アバター'
         introduction: '自己紹介'
