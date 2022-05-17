@@ -3,23 +3,23 @@
   <div class="row">
     <div class="col-md-10 offset-md-1 col-xl-8 offset-xl-2">
       <h1 class="mb-3"><%= t('.title') %></h1>
-      <div class="bg-white border rounded-2 p-3">
-        <div class="d-flex">
-          <%= image_tag current_user.avatar.url, size: '60x60', class: 'ms-3 me-5 mt-2 rounded-circle' %>
-          <div class="flex-fill">
+      <div class="bg-white border rounded-2 p-3" style="min-width: 300px;">
+        <div class="d-md-flex">
+          <%= image_tag current_user.avatar.url, size: '60x60', class: 'm-3 me-md-5 rounded-circle' %>
+          <div class="flex-fill mt-1 mt-md-0">
             <table class="table table-borderless">
-            <% if current_user.role != 'guest' %>
               <tr>
-                <td><%= User.human_attribute_name('email') %>:</th>
-                <td><%= current_user.email %></td>
-              </tr>
-            <% end %>
-              <tr>
-                <td><%= User.human_attribute_name('name') %>:</th>
+                <td class="fs-7 fw-bolder"><%= User.human_attribute_name('name') %>:</th>
                 <td><%= current_user.name %></td>
               </tr>
+              <% if current_user.role != 'guest' %>
+                <tr>
+                  <td class="fs-7 fw-bolder"><%= User.human_attribute_name('email') %>:</th>
+                  <td><%= current_user.email %></td>
+                </tr>
+              <% end %>
               <tr>
-                <td>参加日:</th>
+                <td class="fs-7 fw-bolder">参加日:</th>
                 <td><%= date(current_user.created_at) %></td>
               </tr>
             </table>
@@ -39,7 +39,7 @@
         </div>
         <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-primary' %>
       </div>
-      <div class="bg-white border rounded-2 px-4 mt-3">
+      <div class="bg-white border rounded-2 px-4 mt-3" style="min-width: 300px;">
         <p class="pt-3 fw-bolder">レビュー履歴</p>
       </div>
       <!-- 投稿一覧 -->
