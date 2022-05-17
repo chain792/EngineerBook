@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[index new create]
   before_action :set_user, only: %i[show following follower]
+
+  def index
+    # createアクションでユーザーの登録に失敗した後にブラウザを更新した場合newアクションにリダイレクトさせる
+    redirect_to new_user_path
+  end
 
   def new
     @user = User.new
