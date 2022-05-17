@@ -8,10 +8,12 @@
           <%= image_tag current_user.avatar.url, size: '60x60', class: 'ms-3 me-5 mt-2 rounded-circle' %>
           <div class="flex-fill">
             <table class="table table-borderless">
+            <% if current_user.role != 'guest' %>
               <tr>
                 <td><%= User.human_attribute_name('email') %>:</th>
                 <td><%= current_user.email %></td>
               </tr>
+            <% end %>
               <tr>
                 <td><%= User.human_attribute_name('name') %>:</th>
                 <td><%= current_user.name %></td>
