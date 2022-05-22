@@ -37,6 +37,9 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'ancestry'
 gem 'gon'
+gem 'omniauth'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-twitter'
 
 # uninitialized constant Mail::TestMailerの対策
 gem 'net-smtp'

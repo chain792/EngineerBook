@@ -50,6 +50,12 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  oauths:
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    failure:
+      fail: 'ログインに失敗しました'  
   profiles:
     show:
       title: 'マイページ'

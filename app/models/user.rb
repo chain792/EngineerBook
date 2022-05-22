@@ -22,6 +22,24 @@ class User < ApplicationRecord
 
   enum role: { general: 0, admin: 1, guest: 2 }
 
+  def self.find_or_create_from_auth_hash!(auth_hash)
+    provider = auth_hash[:provider]
+    uid = auth_hash[:uid]
+    name = auth_hash[:info][:name]
+    image = auth_hash[:info][:image]
+    random_value = SecureRandom.alphanumeric(10) + Time.zone.now.to_i.to_s
+    #TODO authのメールをセットする。利用規約とプライバシーポリシーを作成しAdditional permissionsにチェックをつけた後に実施予定。
+    email = random_value
+    
+    User.find_or_create_by!(provider: provider, uid: uid) do |user|
+      user.name = name
+      user.remote_avatar_url = image
+      user.email = email
+      user.password = random_value
+      user.password_confirmation = random_value
+    end
+  end
+
   def own?(object)
     id == object.user_id
   end

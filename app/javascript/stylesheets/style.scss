@@ -107,3 +107,34 @@ a.hover-decoration:hover{
 .follow-nav{
   background-color: rgba(#f0f0f0, 1);
 }
+
+.twitter{
+  background-color: #55acee;
+  color: #fff
+}
+
+.twitter:hover{
+  background-color: #558dee;
+  color: #fff
+}
+
+.text-border{
+  display: flex;
+  align-items: center;
+}
+
+.text-border::before,
+.text-border::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+ 
+.text-border::before {
+  margin-right: 15px;
+}
+ 
+.text-border::after {
+  margin-left: 15px;
+}
