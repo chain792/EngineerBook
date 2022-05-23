@@ -32,5 +32,3 @@ others.children.create(
     { name: 'コミック・雑誌' },
   ]
 )
-
-User.create(name: 'test', email: 'test@example.com', password: 'test', password_confirmation: 'test')

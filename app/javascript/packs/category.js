@@ -5,7 +5,7 @@ function showChildCategory(){
 
   // 大カテゴリを選択を選んだ場合は小カテゴリのセレクト要素を削除し、ボタンを無効化する
   if(!target.value){
-    childCategory = document.getElementById('child-category')
+    childCategory = document.getElementById('child_category')
     if(childCategory){
       childCategory.remove()
     }
@@ -21,11 +21,11 @@ function showChildCategory(){
     const option = new Option(category[1], category[0])
     select.add(option)
   })
-  select.id = 'child-category'
+  select.id = 'child_category'
   select.classList.add('form-select')
   select.name = 'book[child_category]'
 
-  childCategory = document.getElementById('child-category')
+  childCategory = document.getElementById('child_category')
   if(childCategory){
     // 子カテゴリが既に存在する場合は置き換える
     childCategory.replaceWith(select)
