@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
-    ancestry { "MyString" }
+    sequence(:name, 'category_1')
   end
 end
