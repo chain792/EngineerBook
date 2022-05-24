@@ -13,13 +13,13 @@ RSpec.describe 'Books', type: :system do
         fill_in 'search', with: 'apple'
         click_button '検索'
         first('.card-link').click
-        expect(current_path).to eq(new_book_path)
+        expect(current_path).to eq new_book_path
         fill_in 'レビュー', with: 'レビュー内容'
         select 'プログラミング', from: 'parent_category'
         select 'Ruby', from: 'child_category'
         expect{ click_button '登録する' }.to change{ Book.count }.by(1)
-        expect(current_path).to eq(books_path)
-        expect(page).to have_content('レビューを作成しました')
+        expect(current_path).to eq books_path
+        expect(page).to have_content 'レビューを作成しました'
       end
 
       it '本の一覧が表示される' do
@@ -44,9 +44,9 @@ RSpec.describe 'Books', type: :system do
         visit edit_book_path(book_by_me)
         fill_in 'レビュー', with: 'レビュー編集'
         click_button '更新する'
-        expect(current_path).to eq(book_path(book_by_me))
-        expect(page).to have_content('レビューを更新しました')
-        expect(page).to have_content('レビュー編集')
+        expect(current_path).to eq book_path(book_by_me)
+        expect(page).to have_content 'レビューを更新しました'
+        expect(page).to have_content 'レビュー編集'
       end
 
       it '本の削除ができる' do
@@ -56,20 +56,20 @@ RSpec.describe 'Books', type: :system do
         expect{
           click_link '削除' 
           page.accept_confirm
-          expect(page).to have_content('レビューを削除しました')
+          expect(page).to have_content 'レビューを削除しました'
         }.to change{ Book.count }.by(-1)
-        expect(current_path).to eq(books_path)
-        expect(page).not_to have_content(title)
+        expect(current_path).to eq books_path
+        expect(page).not_to have_content title
       end
 
       it '自分が追加した本には歯車アイコンが表示される' do
         visit book_path(book_by_me)
-        expect(page).to have_css('.card .dropdown')
+        expect(page).to have_css '.card .dropdown'
       end
 
       it '他人が追加した本には歯車アイコンが表示されない' do
         visit book_path(book)
-        expect(page).not_to have_css('.card .dropdown')
+        expect(page).not_to have_css '.card .dropdown' 
       end
     end
 
@@ -78,8 +78,8 @@ RSpec.describe 'Books', type: :system do
         visit search_books_path
         fill_in 'search', with: ''
         click_button '検索'
-        expect(page).to have_content('検索キーワードが入力されていません')
-        expect(page).not_to have_css('.card-link')
+        expect(page).to have_content '検索キーワードが入力されていません'
+        expect(page).not_to have_css '.card-link'
       end
 
       it '入力が不足している場合、検索した本を新規追加できない' do
@@ -87,23 +87,23 @@ RSpec.describe 'Books', type: :system do
         fill_in 'search', with: 'apple'
         click_button '検索'
         first('.card-link').click
-        expect(current_path).to eq(new_book_path)
+        expect(current_path).to eq new_book_path
         fill_in 'レビュー', with: ''
         select 'プログラミング', from: 'parent_category'
         select 'Ruby', from: 'child_category'
         expect{ click_button '登録する' }.to change{ Book.count }.by(0)
-        expect(current_path).to eq(books_path)
-        expect(page).to have_content('レビューを作成できませんでした')
-        expect(page).to have_content('レビューは5文字以上で入力してください')
+        expect(current_path).to eq books_path
+        expect(page).to have_content 'レビューを作成できませんでした'
+        expect(page).to have_content 'レビューは5文字以上で入力してください'
       end
 
       it '入力が不足している場合、本の編集ができない' do
         visit edit_book_path(book_by_me)
         fill_in 'レビュー', with: ''
         click_button '更新する'
-        expect(current_path).to eq(book_path(book_by_me))
-        expect(page).to have_content('レビューを更新できませんでした')
-        expect(page).to have_content('レビューは5文字以上で入力してください')
+        expect(current_path).to eq book_path(book_by_me)
+        expect(page).to have_content 'レビューを更新できませんでした'
+        expect(page).to have_content 'レビューは5文字以上で入力してください'
       end
     end
   end

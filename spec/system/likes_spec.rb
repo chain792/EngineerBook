@@ -10,22 +10,22 @@ RSpec.describe 'Likes', type: :system do
     context '正常系' do
       it 'いいねできる' do
         visit book_path(book)
-        expect(page).not_to have_selector('i.bi.bi-heart-fill')
+        expect(page).not_to have_selector 'i.bi.bi-heart-fill'
         expect{
           find('i.bi.bi-heart').click
-          expect(page).to have_selector('i.bi.bi-heart-fill')
+          expect(page).to have_selector 'i.bi.bi-heart-fill'
         }.to change{ Like.count }.by(1)
-        expect(current_path).to eq(book_path(book))
+        expect(current_path).to eq book_path(book)
       end
 
       it 'いいね解除できる' do
         visit book_path(like_by_me.book)
-        expect(page).not_to have_selector('i.bi.bi-heart')
+        expect(page).not_to have_selector 'i.bi.bi-heart'
         expect{
           find('i.bi.bi-heart-fill').click
-          expect(page).to have_selector('i.bi.bi-heart')
+          expect(page).to have_selector 'i.bi.bi-heart'
         }.to change{ Like.count }.by(-1)
-        expect(current_path).to eq(book_path(like_by_me.book))
+        expect(current_path).to eq book_path(like_by_me.book)
       end
     end
   end

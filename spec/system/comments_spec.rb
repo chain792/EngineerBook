@@ -14,9 +14,9 @@ RSpec.describe 'Comments', type: :system do
         fill_in 'comment[body]', with: 'コメントテスト投稿'
         expect{
           click_button '投稿'
-          expect(page).to have_content('コメントテスト投稿')
+          expect(page).to have_content 'コメントテスト投稿'
         }.to change{ Comment.count }.by(1)
-        expect(current_path).to eq(book_path(book))
+        expect(current_path).to eq book_path(book)
       end
 
       it 'コメントの編集ができる' do
@@ -25,9 +25,9 @@ RSpec.describe 'Comments', type: :system do
         click_link '編集する'
         find('#comments-list textarea').set('コメントテスト編集')
         click_button '保存'
-        expect(page).to have_content('コメントテスト編集')
-        expect(page).not_to have_content(comment_by_me.body)
-        expect(current_path).to eq(book_path(comment_by_me.book))
+        expect(page).to have_content 'コメントテスト編集' 
+        expect(page).not_to have_content comment_by_me.body
+        expect(current_path).to eq book_path(comment_by_me.book)
       end
 
       it 'コメントの編集をキャンセルできる' do
@@ -36,9 +36,9 @@ RSpec.describe 'Comments', type: :system do
         click_link '編集する'
         find('#comments-list textarea').set('コメントテスト編集')
         click_button 'キャンセル'
-        expect(page).not_to have_content('コメントテスト編集')
-        expect(page).to have_content(comment_by_me.body)
-        expect(current_path).to eq(book_path(comment_by_me.book))
+        expect(page).not_to have_content 'コメントテスト編集' 
+        expect(page).to have_content comment_by_me.body 
+        expect(current_path).to eq book_path(comment_by_me.book)
       end
 
       it 'コメントの削除できる' do
@@ -48,20 +48,20 @@ RSpec.describe 'Comments', type: :system do
         expect{
           click_link '削除'
           page.accept_confirm
-          expect(page).not_to have_content(comment_by_me.body)
+          expect(page).not_to have_content comment_by_me.body
         }.to change{ Comment.count }.by(-1)
-        expect(page).not_to have_content(body)
-        expect(current_path).to eq(book_path(comment_by_me.book))
+        expect(page).not_to have_content body
+        expect(current_path).to eq book_path(comment_by_me.book)
       end
 
       it '自分が追加したコメントには歯車アイコンが表示される' do
         visit book_path(comment_by_me.book)
-        expect(page).to have_selector('#comments-list .dropdown')
+        expect(page).to have_selector '#comments-list .dropdown'
       end
 
       it '他人が追加したコメントには歯車アイコンが表示されない' do
         visit book_path(comment.book)
-        expect(page).not_to have_selector('#comments-list .dropdown')
+        expect(page).not_to have_selector '#comments-list .dropdown'
       end
     end
 
@@ -71,9 +71,9 @@ RSpec.describe 'Comments', type: :system do
         fill_in 'comment[body]', with: ''
         expect{
           click_button '投稿'
-          expect(page).to have_content('コメントを入力してください')
+          expect(page).to have_content 'コメントを入力してください'
         }.to change{ Comment.count }.by(0)
-        expect(current_path).to eq(book_path(book))
+        expect(current_path).to eq book_path(book)
       end
 
       it '未入力な場合、コメントの編集ができない' do
@@ -82,8 +82,8 @@ RSpec.describe 'Comments', type: :system do
         click_link '編集する'
         find('#comments-list textarea').set('')
         click_button '保存'
-        expect(page).to have_content('コメントを入力してください')
-        expect(current_path).to eq(book_path(comment_by_me.book))
+        expect(page).to have_content 'コメントを入力してください'
+        expect(current_path).to eq book_path(comment_by_me.book)
       end
     end
   end

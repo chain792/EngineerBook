@@ -23,12 +23,12 @@ RSpec.describe 'Profiles', type: :system do
           file_path = Rails.root.join('spec', 'fixtures', 'test.jpeg')
           attach_file('user[avatar]', file_path)
           click_button '更新する'
-          expect(current_path).to eq(profile_path)
-          expect(page).to have_content('プロフィールを更新しました')
-          expect(page).to have_content('名前編集')
-          expect(page).to have_content('自己紹介編集')
-          expect(page).to have_content('edit@example.com')
-          expect(page).to have_selector("img[src$='test.jpeg']")
+          expect(current_path).to eq profile_path
+          expect(page).to have_content 'プロフィールを更新しました'
+          expect(page).to have_content '名前編集'
+          expect(page).to have_content '自己紹介編集'
+          expect(page).to have_content 'edit@example.com'
+          expect(page).to have_selector "img[src$='test.jpeg']"
         end
 
         it 'ユーザーが投稿した本の一覧が表示される' do
@@ -48,9 +48,9 @@ RSpec.describe 'Profiles', type: :system do
           file_path = Rails.root.join('spec', 'fixtures', 'test.jpeg')
           attach_file('user[avatar]', file_path)
           click_button '更新する'
-          expect(current_path).to eq(profile_path)
-          expect(page).to have_content('プロフィールを更新できませんでした')
-          expect(page).to have_content('名前を入力してください')
+          expect(current_path).to eq profile_path
+          expect(page).to have_content 'プロフィールを更新できませんでした'
+          expect(page).to have_content '名前を入力してください' 
         end
       end
     end
@@ -66,8 +66,8 @@ RSpec.describe 'Profiles', type: :system do
         expect(page).to have_content guest.introduction
         expect(page).to have_content date(guest.created_at)
         click_on '編集'
-        expect(current_path).to eq(edit_profile_path)
-        expect(page).not_to have_content('メールアドレス')
+        expect(current_path).to eq edit_profile_path
+        expect(page).not_to have_content 'メールアドレス'
       end
     end
   end
