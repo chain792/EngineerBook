@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :book_author do
-    book { nil }
-    author { nil }
+    association :book
+    association :author
   end
 end
