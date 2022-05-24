@@ -5,6 +5,7 @@ RSpec.describe 'Books', type: :system do
     let(:me) { create(:user) }
     let(:book) { create(:book) }
     let(:book_by_me) { create(:book, user: me) }
+    let(:author) { create(:author) }
     before { login_as(me) }
 
     context '正常系' do
@@ -31,12 +32,14 @@ RSpec.describe 'Books', type: :system do
       end
 
       it '本の詳細が表示される' do
+        create(:book_author, author: author, book: book)
         visit book_path(book)
         expect(page).to have_content book.title
         expect(page).to have_content book.body
         expect(page).to have_content book.category.name
         expect(page).to have_content book.user.name
         expect(page).to have_content book.published_date
+        expect(page).to have_content author.name
         expect(page).to have_link '詳細を見る', href: book.info_link
       end
 
