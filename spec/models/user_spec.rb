@@ -16,13 +16,13 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name]).to eq ["を入力してください"]
     end
 
-    it '名前が17文字以上の場合、無効' do
+    it '名前が16文字より大きい場合、無効' do
       user = build(:user, name: 'a' * 17)
       expect(user).to be_invalid
       expect(user.errors[:name]).to eq ["は16文字以内で入力してください"]
     end
 
-    it '自己紹介が1001文字以上の場合、無効' do
+    it '自己紹介が1000文字より大きい場合、無効' do
       user = build(:user, introduction: 'a' * 1001)
       expect(user).to be_invalid
       expect(user.errors[:introduction]).to eq ["は1000文字以内で入力してください"]
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).to eq ["は4文字以上で入力してください"]
     end
 
-    it "パスワードが3文字以内の場合、無効" do
+    it "パスワードが4文字より小さい場合、無効" do
       user = build(:user, password: 'a' * 3)
       user.valid?
       expect(user.errors[:password]).to eq ["は4文字以上で入力してください"]
