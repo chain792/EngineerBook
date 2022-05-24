@@ -1,6 +1,6 @@
 require 'rails_helper'
   
-RSpec.describe "Users", type: :system do
+RSpec.describe 'Users', type: :system do
   let(:existed_user) { create(:user) }
 
   describe 'ユーザー新規作成' do

@@ -53,7 +53,7 @@ class BooksController < ApplicationController
     if params[:search].nil?
       return
     elsif params[:search].blank?
-      flash.now[:danger] = '検索メッセージが入力されていません'
+      flash.now[:danger] = '検索キーワードが入力されていません'
       return
     else
       url = "https://www.googleapis.com/books/v1/volumes"
