@@ -4,5 +4,9 @@ FactoryBot.define do
     sequence(:name, "name_1") 
     password { "password" }
     password_confirmation { "password" }
+
+    trait :guest do
+      role { :guest }
+    end
   end
 end
