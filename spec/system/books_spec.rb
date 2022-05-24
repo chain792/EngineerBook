@@ -17,7 +17,7 @@ RSpec.describe 'Books', type: :system do
         fill_in 'レビュー', with: 'レビュー内容'
         select 'プログラミング', from: 'parent_category'
         select 'Ruby', from: 'child_category'
-        expect{ click_button '登録する' }.to change { Book.count }.by(1)
+        expect{ click_button '登録する' }.to change{ Book.count }.by(1)
         expect(current_path).to eq(books_path)
         expect(page).to have_content('レビューを作成しました')
       end
@@ -56,9 +56,8 @@ RSpec.describe 'Books', type: :system do
         expect{
           click_link '削除' 
           page.accept_confirm
-          # have_xxxでJavaScriptの処理が終わるまでテストを待機させる
           expect(page).to have_content('レビューを削除しました')
-        }.to change { Book.count }.by(-1)
+        }.to change{ Book.count }.by(-1)
         expect(current_path).to eq(books_path)
         expect(page).not_to have_content(title)
       end
@@ -92,7 +91,7 @@ RSpec.describe 'Books', type: :system do
         fill_in 'レビュー', with: ''
         select 'プログラミング', from: 'parent_category'
         select 'Ruby', from: 'child_category'
-        expect{ click_button '登録する' }.to change { Book.count }.by(0)
+        expect{ click_button '登録する' }.to change{ Book.count }.by(0)
         expect(current_path).to eq(books_path)
         expect(page).to have_content('レビューを作成できませんでした')
         expect(page).to have_content('レビューは5文字以上で入力してください')

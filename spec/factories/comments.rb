@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    user { nil }
-    book { nil }
-    body { "MyText" }
+    sequence(:body, 'comment_1')
+    association :user
+    association :book
   end
 end
