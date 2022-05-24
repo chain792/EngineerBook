@@ -55,7 +55,7 @@ RSpec.describe 'Profiles', type: :system do
       end
     end
 
-    context '一般ユーザー' do
+    context 'ゲストユーザー' do
       let(:guest) { create(:user, :guest) }
       before { login_as(guest) }
 
