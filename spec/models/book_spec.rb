@@ -49,6 +49,13 @@ RSpec.describe Book, type: :model do
         expect{ book.save_with_author(author_array) }.to change{ Author.count }.by(0)
         expect(book).to be_valid
       end
+      
+      it '本のバリデーションが無効な場合、著者を保存しない' do
+        book = build(:book, body: nil)
+        author_array = ['author_1', 'author_2']
+        expect{ book.save_with_author(author_array) }.to change{ Author.count }.by(0)
+        expect(book).to be_invalid
+      end
     end
   end
 
