@@ -116,8 +116,10 @@ RSpec.describe 'Books', type: :request do
       end
       context '他人の資産の場合' do
         it '他ユーザーにはアクセスできない' do
-          expect{ patch book_path(book) } .to raise_error(ActiveRecord::RecordNotFound)
-                                          .and not_change{ Book.find(book_by_me.id).body }
+          expect {
+            patch book_path(book) 
+          } .to raise_error(ActiveRecord::RecordNotFound)
+            .and not_change{ Book.find(book_by_me.id).body }
         end
       end
     end
@@ -142,8 +144,10 @@ RSpec.describe 'Books', type: :request do
       end
       context '他人の資産の場合' do
         it '他ユーザーにはアクセスできない' do
-          expect{ delete book_path(book) }.to raise_error(ActiveRecord::RecordNotFound)
-                                          .and change{ Book.count }.by(0)
+          expect {
+            delete book_path(book) 
+          } .to raise_error(ActiveRecord::RecordNotFound)
+            .and change{ Book.count }.by(0)
         end
       end
     end
