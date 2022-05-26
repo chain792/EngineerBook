@@ -65,4 +65,5 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ApplicationHelper
   config.include LoginMacros
+  config.include Sorcery::TestHelpers::Rails::Request, type: :request
 end
