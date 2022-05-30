@@ -28,8 +28,7 @@ class User < ApplicationRecord
     name = auth_hash[:info][:name]
     image = auth_hash[:info][:image]
     random_value = SecureRandom.alphanumeric(10) + Time.zone.now.to_i.to_s
-    #TODO authのメールをセットする。利用規約とプライバシーポリシーを作成しAdditional permissionsにチェックをつけた後に実施予定。
-    email = random_value
+    email = auth_hash[:info][:email]
     
     User.find_or_create_by!(provider: provider, uid: uid) do |user|
       user.name = name
