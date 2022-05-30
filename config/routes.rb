@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   post 'guest_login', to: 'user_sessions#guest_login'
   get '/auth/:provider/callback' => "oauths#create"
   get "/auth/failure" => "oauths#failure"
+  get '/terms' => 'static_pages#terms'
+  get '/privacy' => 'static_pages#privacy'
 end

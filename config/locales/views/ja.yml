@@ -78,3 +78,7 @@ ja:
   static_pages:
     top:
       title: 'Hello!Topです'
+    terms:
+      title: '利用規約'
+    privacy:
+      title: 'プライバシーポリシー'
