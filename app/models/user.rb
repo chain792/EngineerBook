@@ -29,6 +29,14 @@ class User < ApplicationRecord
     image = auth_hash[:info][:image]
     random_value = SecureRandom.alphanumeric(10) + Time.zone.now.to_i.to_s
     email = auth_hash[:info][:email]
+    logger.debug(auth_hash)
+    logger.debug(provider)
+    logger.debug(uid)
+    logger.debug(email)
+    p auth_hash
+    p provider
+    p uid
+    p email
     
     User.find_or_create_by!(provider: provider, uid: uid) do |user|
       user.name = name
