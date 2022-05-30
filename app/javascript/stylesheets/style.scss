@@ -45,6 +45,10 @@ header .dropdown:hover > .dropdown-menu{
 /*****************************************
   メイン
 ******************************************/
+main{
+  min-height: 75vh;
+}
+
 .book-img{
   max-height: 205px;
 }
