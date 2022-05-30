@@ -6,8 +6,10 @@
       <div class="bg-white border rounded-2 p-3" style="min-width: 300px;">
         <div class="d-flex align-items-center">
           <%= image_tag @user.avatar.url, size: '60x60', class: 'ms-3 me-3 rounded-circle' %>
-          <h3><%= @user.name %></h3>
-          <%= render 'relationships/follow_button', user: @user %>
+          <div class="d-md-flex">
+            <h3><%= @user.name %></h3>
+            <%= render 'relationships/follow_button', user: @user %>
+          </div>
         </div>
         <div class="pt-3">
           <p class="border-bottom fs-7 fw-bolder mb-2">自己紹介</p>
