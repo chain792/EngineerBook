@@ -75,6 +75,8 @@ ja:
   categories:
     index:
       title: 'カテゴリ一覧'
+    show:
+      no_result: 'レビューされた本はありません。'
   static_pages:
     top:
       title: 'Hello!Topです'

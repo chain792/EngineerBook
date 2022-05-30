@@ -6,8 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    category_ids = Category.find(params[:id]).subtree_ids
+    @category = Category.find(params[:id])
+    category_ids = @category.subtree_ids
     @books = Book.where(category_id: category_ids).includes(:authors, :user, :category).order(created_at: :desc)
-    render 'books/index'
   end
 end
