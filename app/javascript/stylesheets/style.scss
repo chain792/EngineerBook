@@ -20,6 +20,10 @@ body{
 /*****************************************
   ヘッダー
 ******************************************/
+header{
+  z-index: $zindex-sticky;
+}
+
 header .dropdown:hover > .dropdown-menu{
   display: block;
 }
@@ -43,6 +47,7 @@ header .dropdown:hover > .dropdown-menu{
 ******************************************/
 footer{
   position: sticky;
+  position: -webkit-sticky;
   top: 100vh;
   background-color: #ddd;
 }
