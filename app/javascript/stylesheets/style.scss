@@ -1,6 +1,10 @@
 /*****************************************
   ページ全体
 ******************************************/
+html, body{
+  height: 100%;
+}
+
 body{
   background-color: #fafafa;
 }
@@ -37,18 +41,19 @@ header .dropdown:hover > .dropdown-menu{
 /*****************************************
   フッター
 ******************************************/
+footer{
+  position: sticky;
+  top: 100vh;
+  background-color: #ddd;
+}
+
 .copyright{
-  font-size: 14px;
-  color: #555;
+  font-size: 12px;
 }
 
 /*****************************************
   メイン
 ******************************************/
-main{
-  min-height: 75vh;
-}
-
 .book-img{
   max-height: 205px;
 }
@@ -92,7 +97,6 @@ a.hover-decoration:hover{
   display: block;
   text-align: center;
 }
-
 
 .like-button a{
   width: 36px;
@@ -146,11 +150,11 @@ a.hover-decoration:hover{
   height: 1px;
   background-color: #ccc;
 }
- 
+
 .text-border::before {
   margin-right: 15px;
 }
- 
+
 .text-border::after {
   margin-left: 15px;
 }
