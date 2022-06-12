@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   get "/auth/failure" => "oauths#failure"
   get '/terms' => 'static_pages#terms'
   get '/privacy' => 'static_pages#privacy'
+  get 'sitemap', to: redirect("https://s3-ap-northeast-1.s3.amazonaws.com/#{ENV['AWS_S3_BUCKET_NAME']}/sitemaps/sitemap.xml.gz")
 end
