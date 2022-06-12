@@ -34,4 +34,31 @@ module ApplicationHelper
     google_book['volumeInfo']['bookImage'] = google_book.dig('volumeInfo', 'imageLinks', 'thumbnail')
     google_book['volumeInfo'].slice('title', 'authors', 'publishedDate', 'infoLink', 'bookImage')
   end
+
+  def default_meta_tags
+    {
+      site: 'EngineerBook',
+      charset: 'utf-8',
+      description: 'EngineerBookはITエンジニアのためのITエンジニア本のレビューアプリです。名著と出会うことでエンジニアとして爆速に成長しよう！',
+      keywords: 'EngineerBook,エンジニアブック,ITエンジニア本',
+      canonical: request.original_url,
+      noindex: !Rails.env.production?,
+      icon: [
+        { href: image_url('favicon.png') },
+        { href: image_url('favicon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
+      ],
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: request.original_url,
+        image: image_url('favicon.png'),
+        locale: 'ja_JP'
+      },
+      twitter: {
+        card: 'summary_large_image'
+      }
+    }
+  end
 end
