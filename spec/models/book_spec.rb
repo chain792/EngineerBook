@@ -9,7 +9,7 @@ RSpec.describe Book, type: :model do
         author_array = ['author_1', 'author_2']
         expect{ book.save_with_author(author_array) }.to change{ Author.count }.by(2)
         expect(book).to be_valid
-        authors = Author.where(name: authors)
+        authors = Author.where(name: author_array)
         authors.each do |author|
           expect(book.authors.include? author).to be_truthy
         end
@@ -19,7 +19,7 @@ RSpec.describe Book, type: :model do
         author_array = ['author', 'author']
         expect{ book.save_with_author(author_array) }.to change{ Author.count }.by(1)
         expect(book).to be_valid
-        authors = Author.where(name: authors)
+        authors = Author.where(name: author_array)
         authors.each do |author|
           expect(book.authors.include? author).to be_truthy
         end
@@ -30,7 +30,7 @@ RSpec.describe Book, type: :model do
         author_array = [author.name]
         expect{ book.save_with_author(author_array) }.to change{ Author.count }.by(0)
         expect(book).to be_valid
-        authors = Author.where(name: authors)
+        authors = Author.where(name: author_array)
         authors.each do |author|
           expect(book.authors.include? author).to be_truthy
         end
