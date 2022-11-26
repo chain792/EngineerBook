@@ -1,24 +1,14 @@
-# README
+# EngineerBook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サービスURL
+~~https://engineer-book.herokuapp.com/~~  
+→サービス終了しました。(2022/11/27)
 
-Things you may want to cover:
+## 概要
+エンジニアのためのおすすめの本をレビューし共有するサイトです
 
-* Ruby version
+## 使用技術
+ruby3.1.1、rails6.1.5、google books api、bootstrap、heroku、aws s3
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用イメージ
+![engineerbook2](https://user-images.githubusercontent.com/97337735/204104497-857394a1-a73b-4444-a229-2248622e6cc1.gif)
