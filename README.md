@@ -11,4 +11,4 @@
 ruby3.1.1、rails6.1.5、google books api、bootstrap、heroku、aws s3
 
 ## 使用イメージ
-![engineerbook2](https://user-images.githubusercontent.com/97337735/204104497-857394a1-a73b-4444-a229-2248622e6cc1.gif)
+<img src="https://user-images.githubusercontent.com/97337735/204104497-857394a1-a73b-4444-a229-2248622e6cc1.gif" width="50%">
